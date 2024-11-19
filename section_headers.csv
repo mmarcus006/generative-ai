@@ -1,0 +1,343 @@
+self_ref,text,level,page_no,orig
+#/texts/0,FRANCHISE DISCLOSURE DOCUMENT,1,1,FRANCHISE DISCLOSURE DOCUMENT
+#/texts/13,How to Use This Franchise Disclosure Document,1,2,How to Use This Franchise Disclosure Document
+#/texts/16,What You Need To Know About Franchising Generally,1,3,What You Need To Know About Franchising Generally
+#/texts/24,Some States Require Registration,1,3,Some States Require Registration
+#/texts/28,Special Risks to Consider About This Franchise,1,4,Special Risks to Consider About This Franchise
+#/texts/35,Exhibits,1,5,Exhibits
+#/texts/39,ITEM 1,1,6,ITEM 1
+#/texts/40,"THE FRANCHISOR AND ANY PARENTS, PREDECESSORS, AND AFFILIATES",1,6,"THE FRANCHISOR AND ANY PARENTS, PREDECESSORS, AND AFFILIATES"
+#/texts/42,"Franchisor, Parent, and Affiliates",1,6,"Franchisor, Parent, and Affiliates"
+#/texts/48,Agent for Service of Process,1,6,Agent for Service of Process
+#/texts/50,Prior Business Experience,1,6,Prior Business Experience
+#/texts/52,The Business and Franchise We Offer,1,6,The Business and Franchise We Offer
+#/texts/62,Market and Competition,1,8,Market and Competition
+#/texts/66,Regulations,1,8,Regulations
+#/texts/74,ITEM 2,1,9,ITEM 2
+#/texts/75,BUSINESS EXPERIENCE,1,9,BUSINESS EXPERIENCE
+#/texts/76,"ROCKY HENSLEY, Chairman, Parent Member",1,9,"ROCKY HENSLEY, Chairman, Parent Member"
+#/texts/78,"KAMERON HENSLEY, President, Parent Member",1,9,"KAMERON HENSLEY, President, Parent Member"
+#/texts/80,"ANGELA HONEYCUTT, Vice President",1,9,"ANGELA HONEYCUTT, Vice President"
+#/texts/84,"LEAH HANLON , Business Development Manager",1,10,"LEAH HANLON , Business Development Manager"
+#/texts/86,"MICHAEL HUBBARD, Vice President of Franchise Development",1,10,"MICHAEL HUBBARD, Vice President of Franchise Development"
+#/texts/88,"CHRISTINA SCHOONOVER , Training Specialist",1,10,"CHRISTINA SCHOONOVER , Training Specialist"
+#/texts/90,"HARLAN BOYCE, Trainer",1,10,"HARLAN BOYCE, Trainer"
+#/texts/92,ITEM 3,1,10,ITEM 3
+#/texts/93,LITIGATION,1,10,LITIGATION
+#/texts/95,ITEM 4,1,10,ITEM 4
+#/texts/96,BANKRUPTCY,1,10,BANKRUPTCY
+#/texts/98,ITEM 5,1,10,ITEM 5
+#/texts/99,INITIAL FEES,1,10,INITIAL FEES
+#/texts/103,ITEM 6,1,11,ITEM 6
+#/texts/104,OTHER FEES,1,11,OTHER FEES
+#/texts/111,Notes,1,16,Notes
+#/texts/124,ITEM 7,1,18,ITEM 7
+#/texts/125,ESTIMATED INITIAL INVESTMENT,1,18,ESTIMATED INITIAL INVESTMENT
+#/texts/126,YOUR ESTIMATED INITIAL INVESTMENT - SINGLE UNIT,1,18,YOUR ESTIMATED INITIAL INVESTMENT - SINGLE UNIT
+#/texts/128,YOUR ESTIMATED INITIAL INVESTMENT - SINGLE UNIT,1,19,YOUR ESTIMATED INITIAL INVESTMENT - SINGLE UNIT
+#/texts/129,Notes to Item 7,1,19,Notes to Item 7
+#/texts/130,General,1,19,General
+#/texts/137,Initial Fee,1,20,Initial Fee
+#/texts/139,Leasehold Improvement and Site Development,1,20,Leasehold Improvement and Site Development
+#/texts/144,"Equipment, Furniture, Fixtures and Signage",1,20,"Equipment, Furniture, Fixtures and Signage"
+#/texts/152,Computers and Telecommunications,1,21,Computers and Telecommunications
+#/texts/155,Training,1,21,Training
+#/texts/159,Additional Expenses - - 3 Months,1,21,Additional Expenses - - 3 Months
+#/texts/162,Other Expenses and Prepayments,1,22,Other Expenses and Prepayments
+#/texts/170,ITEM 8,1,22,ITEM 8
+#/texts/171,RESTRICTIONS ON SOURCES OF PRODUCTS AND SERVICES,1,22,RESTRICTIONS ON SOURCES OF PRODUCTS AND SERVICES
+#/texts/172,Required Purchases and Approved and Designated Suppliers,1,22,Required Purchases and Approved and Designated Suppliers
+#/texts/178,Insurance,1,23,Insurance
+#/texts/188,"Employee Dishonesty/Fidelity insurance with a limit of $100,000; and",1,24,"Employee Dishonesty/Fidelity insurance with a limit of $100,000; and"
+#/texts/191,Approval of Alternative Suppliers; Product Specifications,1,24,Approval of Alternative Suppliers; Product Specifications
+#/texts/195,Percentage of Total Purchases Represented by Required Purchases,1,24,Percentage of Total Purchases Represented by Required Purchases
+#/texts/197,Payments to Franchisor from Designated Suppliers,1,24,Payments to Franchisor from Designated Suppliers
+#/texts/200,Cooperatives,1,25,Cooperatives
+#/texts/202,Negotiated Purchases,1,25,Negotiated Purchases
+#/texts/204,Material Benefits,1,25,Material Benefits
+#/texts/206,ITEM 9,1,25,ITEM 9
+#/texts/207,FRANCHISEE'S OBLIGATIONS,1,25,FRANCHISEE'S OBLIGATIONS
+#/texts/208,Franchise Agreement,1,25,Franchise Agreement
+#/texts/211,ITEM 10,1,26,ITEM 10
+#/texts/212,FINANCING,1,26,FINANCING
+#/texts/214,ITEM 11,1,26,ITEM 11
+#/texts/215,"FRANCHISOR'S ASSISTANCE, ADVERTISING, COMPUTER SYSTEMS, AND TRAINING",1,26,"FRANCHISOR'S ASSISTANCE, ADVERTISING, COMPUTER SYSTEMS, AND TRAINING"
+#/texts/217,Pre -Opening Assistance,1,26,Pre -Opening Assistance
+#/texts/234,Site Selection,1,27,Site Selection
+#/texts/238,Typical Length of Time to Open,1,28,Typical Length of Time to Open
+#/texts/240,Post -Opening Assistance,1,28,Post -Opening Assistance
+#/texts/256,Advertising,1,29,Advertising
+#/texts/262,Advertising Council,1,30,Advertising Council
+#/texts/264,Local Marketing,1,30,Local Marketing
+#/texts/267,Local Advertising Cooperatives,1,30,Local Advertising Cooperatives
+#/texts/271,Brand Fund,1,31,Brand Fund
+#/texts/275,"Computer, Software, and Hardware Systems",1,31,"Computer, Software, and Hardware Systems"
+#/texts/291,Franchisee Advisory Council,1,33,Franchisee Advisory Council
+#/texts/294,Customer Service and Complaints,1,33,Customer Service and Complaints
+#/texts/299,Operations Manual,1,34,Operations Manual
+#/texts/301,Training,1,34,Training
+#/texts/302,INITIAL TRAINING PROGRAM,1,34,INITIAL TRAINING PROGRAM
+#/texts/317,ITEM 12,1,36,ITEM 12
+#/texts/318,TERRITORY,1,36,TERRITORY
+#/texts/328,[Item 13 begins on Next Page],1,37,[Item 13 begins on Next Page]
+#/texts/330,ITEM 13,1,38,ITEM 13
+#/texts/331,TRADEMARKS,1,38,TRADEMARKS
+#/texts/343,ITEM 14,1,40,ITEM 14
+#/texts/344,"PATENTS, COPYRIGHTS AND PROPRIETARY INFORMATION",1,40,"PATENTS, COPYRIGHTS AND PROPRIETARY INFORMATION"
+#/texts/355,ITEM 15,1,41,ITEM 15
+#/texts/356,OBLIGATION TO PARTICIPATE IN THE ACTUAL OPERATION OF THE FRANCHISE BUSINESS,1,41,OBLIGATION TO PARTICIPATE IN THE ACTUAL OPERATION OF THE FRANCHISE BUSINESS
+#/texts/360,ITEM 16,1,42,ITEM 16
+#/texts/361,RESTRICTIONS ON WHAT THE FRANCHISEE MAY SELL,1,42,RESTRICTIONS ON WHAT THE FRANCHISEE MAY SELL
+#/texts/367,ITEM 17,1,43,ITEM 17
+#/texts/368,"RENEWAL, TERMINATION, TRANSFER, AND DISPUTE RESOLUTION",1,43,"RENEWAL, TERMINATION, TRANSFER, AND DISPUTE RESOLUTION"
+#/texts/369,THE FRANCHISE RELATIONSHIP,1,43,THE FRANCHISE RELATIONSHIP
+#/texts/376,ITEM 18,1,48,ITEM 18
+#/texts/377,PUBLIC FIGURES,1,48,PUBLIC FIGURES
+#/texts/380,ITEM 19,1,49,ITEM 19
+#/texts/381,FINANCIAL PERFORMANCE REPRESENTATIONS,1,49,FINANCIAL PERFORMANCE REPRESENTATIONS
+#/texts/383,THE 2023 ANNUAL TOTAL SALES AND AVERAGE SALES OF CLOSED JOBS OF THE CORPORATELY OWNED 1 -TOM -PLUMBER LOCATIONS,1,49,THE 2023 ANNUAL TOTAL SALES AND AVERAGE SALES OF CLOSED JOBS OF THE CORPORATELY OWNED 1 -TOM -PLUMBER LOCATIONS
+#/texts/390,THE 2023 ANNUAL TOTAL SALES AND AVERAGE SALES OF CLOSED JOBS OF THE FRANCHISED 1 -TOM -PLUMBER LOCATIONS,1,50,THE 2023 ANNUAL TOTAL SALES AND AVERAGE SALES OF CLOSED JOBS OF THE FRANCHISED 1 -TOM -PLUMBER LOCATIONS
+#/texts/397,General Footnotes,1,53,General Footnotes
+#/texts/399,Corporately Owned Locations,1,53,Corporately Owned Locations
+#/texts/403,Franchisee Owned Locations,1,53,Franchisee Owned Locations
+#/texts/419,The outlets shown in the tables earned these amounts. Your individual results may differ. There is no assurance you will earn as much.,1,54,The outlets shown in the tables earned these amounts. Your individual results may differ. There is no assurance you will earn as much.
+#/texts/423,ITEM 20,1,54,ITEM 20
+#/texts/424,UNITS AND FRANCHISEE INFORMATION,1,54,UNITS AND FRANCHISEE INFORMATION
+#/texts/427,Transfers of Units from Franchisees to New Owners,1,55,Transfers of Units from Franchisees to New Owners
+#/texts/438,Confidentiality Clauses,1,57,Confidentiality Clauses
+#/texts/440,Franchisor Sponsored and Independent Trademark Specific Franchisee Organizations,1,57,Franchisor Sponsored and Independent Trademark Specific Franchisee Organizations
+#/texts/443,ITEM 21,1,58,ITEM 21
+#/texts/444,FINANCIAL STATEMENTS,1,58,FINANCIAL STATEMENTS
+#/texts/446,ITEM 22,1,58,ITEM 22
+#/texts/447,CONTRACTS,1,58,CONTRACTS
+#/texts/449,ITEM 23,1,58,ITEM 23
+#/texts/450,RECEIPT,1,58,RECEIPT
+#/texts/453,ATTACHMENT I,1,59,ATTACHMENT I
+#/texts/454,UNIT LOCATIONS,1,59,UNIT LOCATIONS
+#/texts/455,"Affiliate -Owned Units as of December 31, 2023",1,59,"Affiliate -Owned Units as of December 31, 2023"
+#/texts/457,"Franchisee Owned Locations as of December 31, 2023",1,59,"Franchisee Owned Locations as of December 31, 2023"
+#/texts/481,Exhibit A,1,60,Exhibit A
+#/texts/483,1 -Tom -Plumber,1,61,1 -Tom -Plumber
+#/texts/484,FRANCHISE AGREEMENT,1,61,FRANCHISE AGREEMENT
+#/texts/485,between,1,61,between
+#/texts/486,1 TOM PLUMBER GLOBAL INC.,1,61,1 TOM PLUMBER GLOBAL INC.
+#/texts/490,FRANCHISE AGREEMENT,1,64,FRANCHISE AGREEMENT
+#/texts/492,1. DEFINITIONS. WORDS AND PHRASES USED IN INITIALLY -CAPITALIZED FORM IN THIS AGREEMENT HAVE THE MEANINGS ASSIGNED IN SECTION 54 OF THIS AGREEMENT UNLESS THE CONTEXT INDICATES OTHERWISE.,1,64,1. DEFINITIONS. WORDS AND PHRASES USED IN INITIALLY -CAPITALIZED FORM IN THIS AGREEMENT HAVE THE MEANINGS ASSIGNED IN SECTION 54 OF THIS AGREEMENT UNLESS THE CONTEXT INDICATES OTHERWISE.
+#/texts/493,2. GRANT OF FRANCHISE .,1,64,2. GRANT OF FRANCHISE .
+#/texts/501,3. OPERATING AREA .,1,65,3. OPERATING AREA .
+#/texts/506,"4. TERM. THE ""TERM"" CONSISTS OF THE INITIAL TERM AND THE SUCCESSOR TERMS DESCRIBED BELOW.",1,65,"4. TERM. THE ""TERM"" CONSISTS OF THE INITIAL TERM AND THE SUCCESSOR TERMS DESCRIBED BELOW."
+#/texts/513,5. FEES & SECURITY INTEREST .,1,66,5. FEES & SECURITY INTEREST .
+#/texts/535,6. FRANCHISED UNIT DEVELOPMENT .,1,68,6. FRANCHISED UNIT DEVELOPMENT .
+#/texts/549,"7. OUR OBLIGATIONS. DURING THE TERM, WE WILL PROVIDE YOU WITH THE FOLLOWING SERVICES:",1,70,"7. OUR OBLIGATIONS. DURING THE TERM, WE WILL PROVIDE YOU WITH THE FOLLOWING SERVICES:"
+#/texts/550,(a) Training .,1,70,(a) Training .
+#/texts/557,"(c) Materials, Services and Suppliers .",1,71,"(c) Materials, Services and Suppliers ."
+#/texts/573,"8. YOUR OBLIGATIONS. DURING THE TERM, YOUR OBLIGATIONS ARE AS FOLLOWS:",1,73,"8. YOUR OBLIGATIONS. DURING THE TERM, YOUR OBLIGATIONS ARE AS FOLLOWS:"
+#/texts/574,(a) Training .,1,73,(a) Training .
+#/texts/580,(b) Operation of Franchised Unit .,1,74,(b) Operation of Franchised Unit .
+#/texts/606,"9. TECHNOLOGY, COMMUNICATIONS AND INTERNET .",1,77,"9. TECHNOLOGY, COMMUNICATIONS AND INTERNET ."
+#/texts/632,13. FRANCHISED SYSTEM MANAGEMENT .,1,81,13. FRANCHISED SYSTEM MANAGEMENT .
+#/texts/654,"15. INSPECTION, TESTING AND AUDIT .",1,84,"15. INSPECTION, TESTING AND AUDIT ."
+#/texts/659,"16. MARKET INTRODUCTION PLAN, ANNUAL MARKETING PLAN & LOCAL MARKETING .",1,85,"16. MARKET INTRODUCTION PLAN, ANNUAL MARKETING PLAN & LOCAL MARKETING ."
+#/texts/671,21. INSURANCE .,1,87,21. INSURANCE .
+#/texts/687,22. ASSIGNMENTS & TRANSFERS .,1,88,22. ASSIGNMENTS & TRANSFERS .
+#/texts/694,23. RIGHTS OF FIRST REFUSAL AND PURCHASE OPTION .,1,89,23. RIGHTS OF FIRST REFUSAL AND PURCHASE OPTION .
+#/texts/732,32. CERTAIN WAIVERS .,1,95,32. CERTAIN WAIVERS .
+#/texts/735,33. OBLIGATIONS UPON TERMINATION OR EXPIRATION .,1,95,33. OBLIGATIONS UPON TERMINATION OR EXPIRATION .
+#/texts/741,35. INDEMNIFICATION BY FRANCHISEE .,1,96,35. INDEMNIFICATION BY FRANCHISEE .
+#/texts/759,37. RELATIONSHIP OF PARTIES .,1,97,37. RELATIONSHIP OF PARTIES .
+#/texts/827,"55. YOUR REPRESENTATIONS, WARRANTIES AND ACKNOWLEDGEMENTS . YOU REPRESENT AND WARRANT, AND ACKNOWLEDGE TO US AS FOLLOWS:",1,103,"55. YOUR REPRESENTATIONS, WARRANTIES AND ACKNOWLEDGEMENTS . YOU REPRESENT AND WARRANT, AND ACKNOWLEDGE TO US AS FOLLOWS:"
+#/texts/844,"1 TOM PLUMBER GLOBAL, INC.",1,106,"1 TOM PLUMBER GLOBAL, INC."
+#/texts/851,Attachment A,1,107,Attachment A
+#/texts/852,Transaction Details,1,107,Transaction Details
+#/texts/873,NOTICE OF UNIT CENTRAL OFFICE ACCEPTANCE,1,108,NOTICE OF UNIT CENTRAL OFFICE ACCEPTANCE
+#/texts/877,1 Tom Plumber Global Inc.,1,108,1 Tom Plumber Global Inc.
+#/texts/881,Attachment B,1,109,Attachment B
+#/texts/884,ACH Authorization Form,1,110,ACH Authorization Form
+#/texts/911,Funds Settlement Information,1,110,Funds Settlement Information
+#/texts/913,Attachment C,1,111,Attachment C
+#/texts/917,GUARANTY AND RESTRICTION AGREEMENT,1,112,GUARANTY AND RESTRICTION AGREEMENT
+#/texts/928,Attachment D,1,113,Attachment D
+#/texts/931,MANAGEMENT CONFIDENTIALITY AND NON -COMPETITION AGREEMENT,1,114,MANAGEMENT CONFIDENTIALITY AND NON -COMPETITION AGREEMENT
+#/texts/951,Attachment E,1,116,Attachment E
+#/texts/954,LEASE RIDER,1,117,LEASE RIDER
+#/texts/975,FRANCHISOR:,1,119,FRANCHISOR:
+#/texts/980,TENANT/OPERATOR:,1,119,TENANT/OPERATOR:
+#/texts/985,LANDLORD:,1,119,LANDLORD:
+#/texts/991,Attachment F,1,120,Attachment F
+#/texts/994,RECEIPT FOR OPERATIONS MANUAL,1,121,RECEIPT FOR OPERATIONS MANUAL
+#/texts/1010,Attachment G,1,122,Attachment G
+#/texts/1011,SBA Addendum,1,122,SBA Addendum
+#/texts/1022,ATTACHMENT G SBA ADDENDUM,1,123,ATTACHMENT G SBA ADDENDUM
+#/texts/1023,Addendum to Franchise Agreement,1,123,Addendum to Franchise Agreement
+#/texts/1029,FRANCHISOR:,1,124,FRANCHISOR:
+#/texts/1030,FRANCHISEE:,1,124,FRANCHISEE:
+#/texts/1031,1 TOM PLUMBER GLOBAL INC.,1,124,1 TOM PLUMBER GLOBAL INC.
+#/texts/1037,Exhibit B,1,125,Exhibit B
+#/texts/1038,Form of Closing Acknowledgement,1,125,Form of Closing Acknowledgement
+#/texts/1040,1 TOM PLUMBER GLOBAL INC. FRANCHISE CLOSING ACKNOWLEDGMENT,1,126,1 TOM PLUMBER GLOBAL INC. FRANCHISE CLOSING ACKNOWLEDGMENT
+#/texts/1042,Acknowledgments and Representations. *,1,126,Acknowledgments and Representations. *
+#/texts/1094,Exhibit C,1,129,Exhibit C
+#/texts/1095,Form of General Release,1,129,Form of General Release
+#/texts/1097,GENERAL RELEASE FOR TRANSFER OR RENEWAL,1,130,GENERAL RELEASE FOR TRANSFER OR RENEWAL
+#/texts/1140,EXHIBIT D,1,134,EXHIBIT D
+#/texts/1142,NON -DISCLOSURE AND NON -USE AGREEMENT,1,135,NON -DISCLOSURE AND NON -USE AGREEMENT
+#/texts/1144,BACKGROUND:,1,135,BACKGROUND:
+#/texts/1147,1. Definition of Confidential Information,1,135,1. Definition of Confidential Information
+#/texts/1155,2. Non -Disclosure of Confidential Information,1,136,2. Non -Disclosure of Confidential Information
+#/texts/1157,3. Non -Use of Confidential Information,1,136,3. Non -Use of Confidential Information
+#/texts/1160,4. Security of Confidential Information,1,136,4. Security of Confidential Information
+#/texts/1162,5. Copying of Confidential Information .,1,136,5. Copying of Confidential Information .
+#/texts/1164,6. Proprietary Legends,1,136,6. Proprietary Legends
+#/texts/1166,7. Compliance with Export Restrictions,1,136,7. Compliance with Export Restrictions
+#/texts/1168,8. Term,1,136,8. Term
+#/texts/1171,9. Acknowledgment of Rights,1,137,9. Acknowledgment of Rights
+#/texts/1173,10. No Warranties,1,137,10. No Warranties
+#/texts/1175,11. Return or Destruction of Confidential Information,1,137,11. Return or Destruction of Confidential Information
+#/texts/1177,12. Injunctive Relief,1,137,12. Injunctive Relief
+#/texts/1180,13. No Partnership; No Commitment; No Exclusivity,1,137,13. No Partnership; No Commitment; No Exclusivity
+#/texts/1182,14. Other Provisions,1,137,14. Other Provisions
+#/texts/1200,Exhibit E,1,140,Exhibit E
+#/texts/1201,Disclosure Document Addenda Required by Certain States,1,140,Disclosure Document Addenda Required by Certain States
+#/texts/1203,APPENDIX TO FRANCHISE DISCLOSURE DOCUMENT REQUIRED BY THE STATE OF CALIFORNIA,1,141,APPENDIX TO FRANCHISE DISCLOSURE DOCUMENT REQUIRED BY THE STATE OF CALIFORNIA
+#/texts/1214,HAWAII ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT,1,142,HAWAII ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT
+#/texts/1219,ILLINOIS ADDENDUM TO DISCLOSURE DOCUMENT,1,143,ILLINOIS ADDENDUM TO DISCLOSURE DOCUMENT
+#/texts/1229,FRANCHISOR,1,144,FRANCHISOR
+#/texts/1239,FRANCHISEE,1,144,FRANCHISEE
+#/texts/1249,ADDENDUM TO THE 1 TOM PLUMBER FRANCHISE AGREEMENT FOR THE STATE OF ILLINOIS,1,145,ADDENDUM TO THE 1 TOM PLUMBER FRANCHISE AGREEMENT FOR THE STATE OF ILLINOIS
+#/texts/1260,FRANCHISOR,1,146,FRANCHISOR
+#/texts/1266,FRANCHISEE,1,146,FRANCHISEE
+#/texts/1272,INDIANA ADDENDUM TO DISCLOSURE DOCUMENT,1,147,INDIANA ADDENDUM TO DISCLOSURE DOCUMENT
+#/texts/1282,ADDENDUM TO THE 1 TOM PLUMBER FRANCHISE AGREEMENT FOR THE STATE OF INDIANA,1,148,ADDENDUM TO THE 1 TOM PLUMBER FRANCHISE AGREEMENT FOR THE STATE OF INDIANA
+#/texts/1295,FRANCHISOR,1,149,FRANCHISOR
+#/texts/1301,FRANCHISEE,1,149,FRANCHISEE
+#/texts/1306,MARYLAND ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT,1,150,MARYLAND ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT
+#/texts/1319,FRANCHISOR,1,151,FRANCHISOR
+#/texts/1325,FRANCHISEE,1,151,FRANCHISEE
+#/texts/1331,ADDITIONAL DISCLOSURES REQUIRED BY THE STATE OF MICHIGAN,1,152,ADDITIONAL DISCLOSURES REQUIRED BY THE STATE OF MICHIGAN
+#/texts/1347,"THE FACT THAT THERE IS A NOTICE OF THIS OFFERING ON FILE WITH THE ATTORNEY GENERAL DOES NOT CONSTITUTE APPROVAL, RECOMMENDATION, OR ENDORSEMENT BY THE ATTORNEY GENERAL.",1,153,"THE FACT THAT THERE IS A NOTICE OF THIS OFFERING ON FILE WITH THE ATTORNEY GENERAL DOES NOT CONSTITUTE APPROVAL, RECOMMENDATION, OR ENDORSEMENT BY THE ATTORNEY GENERAL."
+#/texts/1351,MINNESOTA ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT,1,154,MINNESOTA ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT
+#/texts/1361,FRANCHISOR,1,155,FRANCHISOR
+#/texts/1367,FRANCHISEE,1,155,FRANCHISEE
+#/texts/1373,ADDENDUM TO THE 1 TOM PLUMBER FRANCHISE AGREEMENT FOR THE STATE OF NEW YORK,1,156,ADDENDUM TO THE 1 TOM PLUMBER FRANCHISE AGREEMENT FOR THE STATE OF NEW YORK
+#/texts/1392,FRANCHISEE:,1,158,FRANCHISEE:
+#/texts/1396,1 TOM PLUMBER GLOBAL INC .,1,158,1 TOM PLUMBER GLOBAL INC .
+#/texts/1406,NORTH DAKOTA ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT,1,159,NORTH DAKOTA ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT
+#/texts/1426,FRANCHISOR,1,160,FRANCHISOR
+#/texts/1432,FRANCHISEE,1,160,FRANCHISEE
+#/texts/1438,RHODE ISLAND ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT,1,161,RHODE ISLAND ADDENDUM TO FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT
+#/texts/1441,FRANCHISOR,1,161,FRANCHISOR
+#/texts/1447,FRANCHISEE,1,161,FRANCHISEE
+#/texts/1453,ADDENDUM TO THE 1 TOM PLUMBER FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT FOR THE STATE OF VIRGINIA,1,162,ADDENDUM TO THE 1 TOM PLUMBER FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT FOR THE STATE OF VIRGINIA
+#/texts/1458,WASHINGTON ADDENDUM TO THE FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT,1,163,WASHINGTON ADDENDUM TO THE FRANCHISE DISCLOSURE DOCUMENT AND FRANCHISE AGREEMENT
+#/texts/1470,FRANCHISOR,1,164,FRANCHISOR
+#/texts/1471,1 Tom Plumber Global Inc.,1,164,1 Tom Plumber Global Inc.
+#/texts/1476,FRANCHISEE,1,164,FRANCHISEE
+#/texts/1482,Exhibit F,1,165,Exhibit F
+#/texts/1483,Financial Statements,1,165,Financial Statements
+#/texts/1486,"ITOM PLUMBER GLOBAL, INC.",1,167,"ITOM PLUMBER GLOBAL, INC."
+#/texts/1487,"DECEMBER 31,2023, 2022 AND 2021",1,167,"DECEMBER 31,2023, 2022 AND 2021"
+#/texts/1494,INDEPENDENT AUDITOR'S REPORT,1,168,INDEPENDENT AUDITOR'S REPORT
+#/texts/1496,Opinion,1,168,Opinion
+#/texts/1499,Basis for Opinion,1,168,Basis for Opinion
+#/texts/1501,Responsibilities of Management for the Financial Statements,1,168,Responsibilities of Management for the Financial Statements
+#/texts/1504,Auditor's Responsibilities for the Audit of the Financial Statements,1,168,Auditor's Responsibilities for the Audit of the Financial Statements
+#/texts/1526,Other Relevant Information,1,169,Other Relevant Information
+#/texts/1543,"TOM PLUMBER GLOBAL, INC.",1,170,"TOM PLUMBER GLOBAL, INC."
+#/texts/1544,BALANCE SHEETS,1,170,BALANCE SHEETS
+#/texts/1545,"FOR THE YEARS ENDED 'DECEMBER 31, 2023, 2022 AND 2021",1,170,"FOR THE YEARS ENDED 'DECEMBER 31, 2023, 2022 AND 2021"
+#/texts/1548,"TOM PLUMBER GLOBAL, INC.",1,171,"TOM PLUMBER GLOBAL, INC."
+#/texts/1549,BALANCE SHEETS,1,171,BALANCE SHEETS
+#/texts/1550,"FOR THE YEARS ENDED 'DECEMBER 31,2023, 2022 AND 2021",1,171,"FOR THE YEARS ENDED 'DECEMBER 31,2023, 2022 AND 2021"
+#/texts/1552,"ITOM PLUMBER GLOBAL, INC",1,172,"ITOM PLUMBER GLOBAL, INC"
+#/texts/1553,STATEMENT OF INCOME,1,172,STATEMENT OF INCOME
+#/texts/1554,"FOR THE YEARS ENDED DECEMBER 31,2023, 2022 AND 2021",1,172,"FOR THE YEARS ENDED DECEMBER 31,2023, 2022 AND 2021"
+#/texts/1557,"ITOM PLUMBER GLOBAL, INC",1,173,"ITOM PLUMBER GLOBAL, INC"
+#/texts/1558,STATEMENT OF INCOME,1,173,STATEMENT OF INCOME
+#/texts/1559,"FOR THE YEARS ENDED DECEMBER 31,2023, 2022 AND 2021",1,173,"FOR THE YEARS ENDED DECEMBER 31,2023, 2022 AND 2021"
+#/texts/1561,"ITOM PLUMBER GLOBAL, INC. STATEMENT OF CASH FLOWS",1,174,"ITOM PLUMBER GLOBAL, INC. STATEMENT OF CASH FLOWS"
+#/texts/1562,"FOR THE YEARS ENDED 'DECEMBER 31,2023, 2022 AND 2021",1,174,"FOR THE YEARS ENDED 'DECEMBER 31,2023, 2022 AND 2021"
+#/texts/1564,"ITOM PLUMBER GLOBAL, INC. NOTES TO FINANCIAL STATEMENTS DECEMBER 2023, 2022 AND 2021 31,",1,175,"ITOM PLUMBER GLOBAL, INC. NOTES TO FINANCIAL STATEMENTS DECEMBER 2023, 2022 AND 2021 31,"
+#/texts/1565,NOTE 1 ~SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES,1,175,NOTE 1 ~SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES
+#/texts/1567,Franchise Development Costs,1,175,Franchise Development Costs
+#/texts/1569,Use of Estimates,1,175,Use of Estimates
+#/texts/1571,Accounts Receivable and Allowance for Credit Losses,1,175,Accounts Receivable and Allowance for Credit Losses
+#/texts/1574,"ITOM PLUMBER GLOBAL, INC. NOTES TO FINANCIAL STATEMENTS DECEMBER 31,2023, 2022 AND 2021",1,176,"ITOM PLUMBER GLOBAL, INC. NOTES TO FINANCIAL STATEMENTS DECEMBER 31,2023, 2022 AND 2021"
+#/texts/1575,NOTE 1 ~SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (continued),1,176,NOTE 1 ~SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (continued)
+#/texts/1576,Revenue Recognition,1,176,Revenue Recognition
+#/texts/1582,Continuing Franchise Fees,1,176,Continuing Franchise Fees
+#/texts/1589,"ITOM PLUMBER GLOBAL, INC. NOTES TO FINANCIAL STATEMENTS DECEMBER 31,2023, 2022 AND 2021",1,177,"ITOM PLUMBER GLOBAL, INC. NOTES TO FINANCIAL STATEMENTS DECEMBER 31,2023, 2022 AND 2021"
+#/texts/1590,NOTE 1 SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (continued),1,177,NOTE 1 SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (continued)
+#/texts/1591,Property and Equipment,1,177,Property and Equipment
+#/texts/1593,Inventory Held for Resale,1,177,Inventory Held for Resale
+#/texts/1595,Income Taxes,1,177,Income Taxes
+#/texts/1599,Recently Issued Significant Accounting Standards,1,177,Recently Issued Significant Accounting Standards
+#/texts/1600,Lease Accounting Standard,1,177,Lease Accounting Standard
+#/texts/1603,"ITOM PLUMBER GLOBAL, INC.",1,178,"ITOM PLUMBER GLOBAL, INC."
+#/texts/1604,NOTES TO FINANCIAL STATEMENTS,1,178,NOTES TO FINANCIAL STATEMENTS
+#/texts/1606,NOTE 1 ~SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (continued),1,178,NOTE 1 ~SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (continued)
+#/texts/1607,SUBSEQUENT EVENTS,1,178,SUBSEQUENT EVENTS
+#/texts/1611,NOTE 2 CASH AND CASH FLOWS,1,178,NOTE 2 CASH AND CASH FLOWS
+#/texts/1614,NOTE 3 - ACCOUNTS RECEIVABLE,1,178,NOTE 3 - ACCOUNTS RECEIVABLE
+#/texts/1616,"ITOM PLUMBER GLOBAL, INC.",1,179,"ITOM PLUMBER GLOBAL, INC."
+#/texts/1617,NOTES TO FINANCIAL STATEMENTS,1,179,NOTES TO FINANCIAL STATEMENTS
+#/texts/1619,NOTE 4 - OTHER INVESTMENTS,1,179,NOTE 4 - OTHER INVESTMENTS
+#/texts/1621,NOTE 5 - FRANCHISE DEVELOPMENT COSTS SUBJECT TO AMORTIZATION,1,179,NOTE 5 - FRANCHISE DEVELOPMENT COSTS SUBJECT TO AMORTIZATION
+#/texts/1624,NOTE 6 - DEFERRED REVENUE,1,179,NOTE 6 - DEFERRED REVENUE
+#/texts/1627,"ITOM PLUMBER GLOBAL, INC.",1,180,"ITOM PLUMBER GLOBAL, INC."
+#/texts/1628,NOTES TO FINANCIAL STATEMENTS,1,180,NOTES TO FINANCIAL STATEMENTS
+#/texts/1630,NOTE 7 - RELATED PARY TRANSACTIONS,1,180,NOTE 7 - RELATED PARY TRANSACTIONS
+#/texts/1632,NOTE 8 OPERATING LEASES,1,180,NOTE 8 OPERATING LEASES
+#/texts/1635,Exhibit G,1,181,Exhibit G
+#/texts/1636,State Administrators and Agents for Service of Process,1,181,State Administrators and Agents for Service of Process
+#/texts/1638,California,1,181,California
+#/texts/1640,Hawaii,1,181,Hawaii
+#/texts/1642,Illinois,1,181,Illinois
+#/texts/1645,Indiana,1,181,Indiana
+#/texts/1647,Maryland,1,181,Maryland
+#/texts/1650,North Dakota,1,181,North Dakota
+#/texts/1652,Rhode Island,1,181,Rhode Island
+#/texts/1655,Michigan,1,181,Michigan
+#/texts/1657,Minnesota,1,181,Minnesota
+#/texts/1659,South Dakota,1,181,South Dakota
+#/texts/1661,Virginia,1,181,Virginia
+#/texts/1663,Washington,1,181,Washington
+#/texts/1665,Wisconsin,1,181,Wisconsin
+#/texts/1698,Agents for Service of Process:,1,182,Agents for Service of Process:
+#/texts/1701,Start -Up Manual,1,183,Start -Up Manual
+#/texts/1704,Exhibit H,1,183,Exhibit H
+#/texts/1705,Exhibit I,1,184,Exhibit I
+#/texts/1706,"Names , A Addresses, and Phone Numbers of Franchisees as of December 31, 2023",1,184,"Names , A Addresses, and Phone Numbers of Franchisees as of December 31, 2023"
+#/texts/1707,Alabama,1,184,Alabama
+#/texts/1711,Arizona,1,184,Arizona
+#/texts/1713,Florida,1,184,Florida
+#/texts/1715,Georgia,1,184,Georgia
+#/texts/1717,Illinois,1,184,Illinois
+#/texts/1719,Louisiana,1,184,Louisiana
+#/texts/1723,New York,1,185,New York
+#/texts/1729,North Carolina,1,185,North Carolina
+#/texts/1735,Ohio,1,185,Ohio
+#/texts/1741,Oklahoma,1,185,Oklahoma
+#/texts/1745,Pennsylvania,1,185,Pennsylvania
+#/texts/1755,South Carolina,1,185,South Carolina
+#/texts/1760,Tennessee,1,186,Tennessee
+#/texts/1766,Texas,1,186,Texas
+#/texts/1772,Utah,1,186,Utah
+#/texts/1774,Virginia,1,186,Virginia
+#/texts/1779,Washington,1,186,Washington
+#/texts/1783,Wisconsin,1,187,Wisconsin
+#/texts/1785,"Names and Addresses of Franchisees who have signed Franchise Agreements but have not yet Opened as of December 31, 2023",1,187,"Names and Addresses of Franchisees who have signed Franchise Agreements but have not yet Opened as of December 31, 2023"
+#/texts/1786,Arizona,1,187,Arizona
+#/texts/1789,Florida,1,187,Florida
+#/texts/1800,Illinois,1,188,Illinois
+#/texts/1802,Kentucky,1,188,Kentucky
+#/texts/1804,North Carolina,1,188,North Carolina
+#/texts/1810,Ohio,1,188,Ohio
+#/texts/1822,Pennsylvania,1,189,Pennsylvania
+#/texts/1839,South Carolina,1,189,South Carolina
+#/texts/1843,Texas,1,189,Texas
+#/texts/1847,Virginia,1,190,Virginia
+#/texts/1849,Wisconsin,1,190,Wisconsin
+#/texts/1852,Tennessee,1,190,Tennessee
+#/texts/1855,STATE EFFECTIVE DATES,1,191,STATE EFFECTIVE DATES
+#/texts/1868,RECEIPT OF FRANCHISE DISCLOSURE DOCUMENT,1,192,RECEIPT OF FRANCHISE DISCLOSURE DOCUMENT
+#/texts/1886,RECEIPT OF FRANCHISE DISCLOSURE DOCUMENT,1,193,RECEIPT OF FRANCHISE DISCLOSURE DOCUMENT
