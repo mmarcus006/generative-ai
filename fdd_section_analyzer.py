@@ -1,8 +1,10 @@
 from pathlib import Path
 import json
 import re
+import csv
 from typing import Dict, List, Tuple
 from thefuzz import fuzz
+from datetime import datetime
 
 class FDDSectionAnalyzer:
     # Standard FDD item titles
@@ -140,55 +142,123 @@ class FDDSectionAnalyzer:
                                0, False, "MISSING"))
         
         return sections
+    
+    def save_results(self, validation_results: List[Dict], output_dir: Path, source_file: Path):
+        """Save analysis results and validation issues to CSV files."""
+        # Create output directory if it doesn't exist
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Generate timestamp for file names
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        # Save section analysis results
+        analysis_file = output_dir / f"fdd_analysis_{timestamp}.csv"
+        with open(analysis_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=['File_Name', 'File_Path', 'Item', 'Page', 'Found', 'Match_Type', 'Header_Text'])
+            writer.writeheader()
+            for result in validation_results:
+                writer.writerow({
+                    'File_Name': source_file.name,
+                    'File_Path': str(source_file),
+                    'Item': result['item_num'],
+                    'Page': result['page'],
+                    'Found': '✓' if result['found'] else '✗',
+                    'Match_Type': result['match_type'],
+                    'Header_Text': result['text']
+                })
+        
+        # Save validation issues
+        issues_file = output_dir / f"fdd_validation_{timestamp}.csv"
+        with open(issues_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=['File_Name', 'File_Path', 'Item', 'Page', 'Issue'])
+            writer.writeheader()
+            for result in validation_results:
+                if result['issues']:
+                    for issue in result['issues']:
+                        writer.writerow({
+                            'File_Name': source_file.name,
+                            'File_Path': str(source_file),
+                            'Item': result['item_num'],
+                            'Page': result['page'],
+                            'Issue': issue
+                        })
+        
+        # Save summary statistics
+        summary_file = output_dir / f"fdd_summary_{timestamp}.csv"
+        with open(summary_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(['File_Name', 'File_Path', 'Metric', 'Count'])
+            
+            exact_matches = sum(1 for r in validation_results if r['match_type'] == "EXACT")
+            fuzzy_matches = sum(1 for r in validation_results if r['match_type'] == "FUZZY")
+            missing = sum(1 for r in validation_results if not r['found'])
+            total_issues = sum(len(r['issues']) for r in validation_results)
+            
+            writer.writerows([
+                [source_file.name, str(source_file), 'Exact Matches', exact_matches],
+                [source_file.name, str(source_file), 'Fuzzy Matches', fuzzy_matches],
+                [source_file.name, str(source_file), 'Missing Items', missing],
+                [source_file.name, str(source_file), 'Total Issues', total_issues]
+            ])
+        
+        return analysis_file, issues_file, summary_file
+
+def analyze_directory(input_dir: str):
+    """Analyze all JSON files in the specified directory."""
+    input_path = Path(input_dir)
+    output_dir = Path('fdd_analysis_results')
+    
+    # Lists to store all results for combined analysis
+    all_analyses = []
+    all_issues = []
+    all_summaries = []
+    
+    # Process each JSON file
+    for json_file in input_path.glob('*.json'):
+        try:
+            print(f"\nProcessing: {json_file.name}")
+            analyzer = FDDSectionAnalyzer(str(json_file))
+            sections = analyzer.analyze_fdd_sections()
+            validation_results = analyzer.validate_sections(sections)
+            
+            analysis_file, issues_file, summary_file = analyzer.save_results(
+                validation_results, output_dir, json_file)
+            
+            all_analyses.append(analysis_file)
+            all_issues.append(issues_file)
+            all_summaries.append(summary_file)
+            
+        except Exception as e:
+            print(f"Error processing {json_file.name}: {str(e)}")
+    
+    # Create combined results file
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    combined_file = output_dir / f"combined_analysis_{timestamp}.csv"
+    
+    with open(combined_file, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(['Analysis Summary'])
+        writer.writerow(['Total Files Processed', len(all_analyses)])
+        writer.writerow([])
+        writer.writerow(['Individual Results Files'])
+        writer.writerow(['Type', 'File Name', 'Path'])
+        
+        for a, i, s in zip(all_analyses, all_issues, all_summaries):
+            writer.writerows([
+                ['Analysis', a.name, str(a)],
+                ['Issues', i.name, str(i)],
+                ['Summary', s.name, str(s)]
+            ])
+    
+    return combined_file
 
 def main():
-    analyzer = FDDSectionAnalyzer("1 TOM PLUMBER GLOBAL, INC._2024.json")
-    sections = analyzer.analyze_fdd_sections()
-    validation_results = analyzer.validate_sections(sections)
+    input_dir = r"C:\Projects\NewFranchiseData_Windows\FinalFranchiseData_Windows\data\processed_data\json_documents"
+    combined_file = analyze_directory(input_dir)
     
-    # Print section analysis
-    print("\nFDD Section Header Analysis:")
-    print("=" * 100)
-    print(f"{'Item':<6} {'Page':<6} {'Found':<7} {'Match':<8} Header")
-    print("-" * 100)
-    
-    for result in validation_results:
-        status = "✓" if result['found'] else "✗"
-        print(f"{result['item_num']:<6} {result['page']:<6} {status:<7} {result['match_type']:<8} {result['text']}")
-    
-    # Print validation issues
-    print("\nValidation Issues:")
-    print("=" * 100)
-    has_issues = False
-    
-    for result in validation_results:
-        if result['issues']:
-            has_issues = True
-            print(f"\nItem {result['item_num']} (Page {result['page']}):")
-            for issue in result['issues']:
-                print(f"  • {issue}")
-    
-    if not has_issues:
-        print("No validation issues found!")
-    
-    # Summary statistics
-    print("\nSummary:")
-    print("-" * 50)
-    exact_matches = sum(1 for r in validation_results if r['match_type'] == "EXACT")
-    fuzzy_matches = sum(1 for r in validation_results if r['match_type'] == "FUZZY")
-    missing = sum(1 for r in validation_results if not r['found'])
-    total_issues = sum(len(r['issues']) for r in validation_results)
-    
-    print(f"Exact Matches: {exact_matches}")
-    print(f"Fuzzy Matches: {fuzzy_matches}")
-    print(f"Missing Items: {missing}")
-    print(f"Total Issues Found: {total_issues}")
-    
-    if missing > 0:
-        print("\nMissing Items:")
-        for result in validation_results:
-            if not result['found']:
-                print(f"- Item {result['item_num']}")
+    print(f"\nAnalysis complete!")
+    print(f"Combined results saved to: {combined_file}")
+    print(f"Individual results are in the 'fdd_analysis_results' directory")
 
 if __name__ == "__main__":
     main() 
