@@ -54,6 +54,48 @@ class FDDSectionAnalyzer:
         
         return max(ratio1, ratio2, token_ratio) > 80  # Threshold of 80%
     
+    def validate_sections(self, sections: List[Tuple[int, str, int, bool, str]]) -> List[Dict]:
+        """Validate the found sections for common issues."""
+        validation_results = []
+        
+        # Check for sequential page numbers
+        prev_page = 0
+        for item_num, text, page_no, found, match_type in sections:
+            issues = []
+            
+            # Skip page number validation for missing sections
+            if found:
+                # Check if page numbers are increasing
+                if page_no < prev_page:
+                    issues.append(f"Non-sequential page number: Item {item_num} (page {page_no}) comes after page {prev_page}")
+                
+                # Check for unreasonable page jumps (more than 20 pages)
+                if prev_page > 0 and (page_no - prev_page) > 20:
+                    issues.append(f"Large page gap: {page_no - prev_page} pages between items")
+                
+                prev_page = page_no
+            
+            # Check for missing required items
+            if not found and item_num in [1, 2, 3, 4, 5, 6, 7, 21, 22, 23]:  # Critical items
+                issues.append(f"Missing critical FDD Item {item_num}")
+            
+            # Check for proper item format if found
+            if found:
+                # Check if title contains item number
+                if not re.search(rf'\b{item_num}\b', text):
+                    issues.append(f"Item number {item_num} not found in header text")
+            
+            validation_results.append({
+                'item_num': item_num,
+                'page': page_no,
+                'found': found,
+                'match_type': match_type,
+                'text': text,
+                'issues': issues
+            })
+        
+        return validation_results
+    
     def analyze_fdd_sections(self) -> List[Tuple[int, str, int, bool, str]]:
         """Analyze sections for FDD Items 1-23."""
         sections = []
@@ -102,31 +144,51 @@ class FDDSectionAnalyzer:
 def main():
     analyzer = FDDSectionAnalyzer("1 TOM PLUMBER GLOBAL, INC._2024.json")
     sections = analyzer.analyze_fdd_sections()
+    validation_results = analyzer.validate_sections(sections)
     
+    # Print section analysis
     print("\nFDD Section Header Analysis:")
     print("=" * 100)
     print(f"{'Item':<6} {'Page':<6} {'Found':<7} {'Match':<8} Header")
     print("-" * 100)
     
-    for item_num, text, page_no, found, match_type in sections:
-        status = "✓" if found else "✗"
-        print(f"{item_num:<6} {page_no:<6} {status:<7} {match_type:<8} {text}")
+    for result in validation_results:
+        status = "✓" if result['found'] else "✗"
+        print(f"{result['item_num']:<6} {result['page']:<6} {status:<7} {result['match_type']:<8} {result['text']}")
     
-    # Summary
-    exact_matches = sum(1 for _, _, _, found, match_type in sections if match_type == "EXACT")
-    fuzzy_matches = sum(1 for _, _, _, found, match_type in sections if match_type == "FUZZY")
-    missing = sum(1 for _, _, _, found, match_type in sections if not found)
+    # Print validation issues
+    print("\nValidation Issues:")
+    print("=" * 100)
+    has_issues = False
     
+    for result in validation_results:
+        if result['issues']:
+            has_issues = True
+            print(f"\nItem {result['item_num']} (Page {result['page']}):")
+            for issue in result['issues']:
+                print(f"  • {issue}")
+    
+    if not has_issues:
+        print("No validation issues found!")
+    
+    # Summary statistics
     print("\nSummary:")
+    print("-" * 50)
+    exact_matches = sum(1 for r in validation_results if r['match_type'] == "EXACT")
+    fuzzy_matches = sum(1 for r in validation_results if r['match_type'] == "FUZZY")
+    missing = sum(1 for r in validation_results if not r['found'])
+    total_issues = sum(len(r['issues']) for r in validation_results)
+    
     print(f"Exact Matches: {exact_matches}")
     print(f"Fuzzy Matches: {fuzzy_matches}")
-    print(f"Missing: {missing}")
+    print(f"Missing Items: {missing}")
+    print(f"Total Issues Found: {total_issues}")
     
     if missing > 0:
         print("\nMissing Items:")
-        for item_num, text, page_no, found, match_type in sections:
-            if not found:
-                print(f"- Item {item_num}")
+        for result in validation_results:
+            if not result['found']:
+                print(f"- Item {result['item_num']}")
 
 if __name__ == "__main__":
     main() 
