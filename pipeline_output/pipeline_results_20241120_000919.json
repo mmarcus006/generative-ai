@@ -1,0 +1,34 @@
+{
+  "timestamp": "20241120_000919",
+  "file_name": "1 TOM PLUMBER GLOBAL, INC._2024.json",
+  "status": "completed",
+  "fdd_info": {
+    "address": {
+      "city": "Milford",
+      "state": "OH",
+      "street": "24 Whitney Drive, Suite B",
+      "zip": "45150"
+    },
+    "business_description": "1 Tom Plumber Global Inc. offers franchises to operate a 1-Tom-Plumber\u00ae plumbing business focused on emergency plumbing services and repairs at commercial and residential properties.",
+    "fdd_year": 2024,
+    "franchise_name": "1 Tom Plumber Global Inc.",
+    "issuance_date": "April 1, 2024",
+    "contact_info": {
+      "email": "angie@1tomplumber.com",
+      "phone": "1-855-832-6866",
+      "website": "www.1tomplumber.com"
+    },
+    "franchise_system_description": "The franchise operates a drain cleaning and full-service plumbing business focused on emergency services and repairs for commercial and residential properties using the franchisor's system, which includes standards, trademarks, materials, and an operations manual.",
+    "incorporation_date": "January 27, 2020",
+    "initial_franchise_fee": "$50,000",
+    "legal_entity_type": "Ohio corporation",
+    "principal_business_address": "24 Whitney Drive, Suite B, Milford, Ohio 45150",
+    "state_of_incorporation": "Ohio",
+    "total_investment_range": {
+      "max": "$2,784,795",
+      "min": "$515,719"
+    }
+  },
+  "sections_count": 23,
+  "document_id": 1
+}
