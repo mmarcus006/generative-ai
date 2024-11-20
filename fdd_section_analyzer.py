@@ -61,16 +61,24 @@ class FDDSectionAnalyzer:
             return json.load(f)
     
     def _fuzzy_match_header(self, text: str, item_num: int) -> bool:
-        """Check if text matches the standard FDD item title using fuzzy matching."""
+        """Enhanced fuzzy matching with stricter criteria."""
         standard_title = f"ITEM {item_num}: {self.FDD_ITEMS[item_num]}"
-        # Check both with and without "ITEM X:" prefix
-        ratio1 = fuzz.ratio(text.upper(), standard_title.upper())
-        ratio2 = fuzz.ratio(text.upper(), self.FDD_ITEMS[item_num].upper())
         
-        # Also check partial token matching for better flexibility
-        token_ratio = fuzz.partial_token_sort_ratio(text.upper(), standard_title.upper())
+        # Weight different aspects of the match
+        weights = {
+            'full_match': 0.3,
+            'content_match': 0.5,
+            'number_presence': 0.2
+        }
         
-        return max(ratio1, ratio2, token_ratio) > 80  # Threshold of 80%
+        scores = {
+            'full_match': fuzz.ratio(text.upper(), standard_title.upper()),
+            'content_match': fuzz.token_set_ratio(text.upper(), self.FDD_ITEMS[item_num].upper()),
+            'number_presence': 100 if str(item_num) in text else 0
+        }
+        
+        weighted_score = sum(scores[k] * weights[k] for k in weights)
+        return weighted_score > 85  # Increased threshold
     
     def _validate_page_numbers(self, page_no: int, prev_page: int, context: dict) -> List[str]:
         """Enhanced page number validation with context awareness."""
@@ -211,7 +219,6 @@ class FDDSectionAnalyzer:
     def analyze_fdd_sections(self) -> List[Tuple[int, str, int, bool, str]]:
         """Analyze sections for FDD Items 1-23."""
         sections = []
-        document_structure = self._analyze_document_structure()
         
         # First pass: collect all section headers
         headers = []
@@ -226,27 +233,75 @@ class FDDSectionAnalyzer:
         # Check for each FDD item
         for item_num in range(1, 24):
             found = False
+            best_fuzzy_match = None
+            best_fuzzy_score = 0
+            
             for header in headers:
                 text = header['text']
                 
-                # Try exact match first
-                match = re.search(rf'ITEM\s+{item_num}\b', text, re.IGNORECASE)
-                if match:
-                    sections.append((item_num, text, header['page_no'], True, "EXACT"))
-                    found = True
+                # Try exact match patterns first
+                exact_patterns = [
+                    rf'ITEM\s*{item_num}\b',
+                    rf'ITEM\s*{item_num}:',
+                    rf'^{item_num}\.\s+',
+                    rf'SECTION\s*{item_num}\b'
+                ]
+                
+                # Check for exact matches
+                for pattern in exact_patterns:
+                    if re.search(pattern, text, re.IGNORECASE):
+                        sections.append((item_num, text, header['page_no'], True, "EXACT"))
+                        found = True
+                        break
+                
+                if found:
                     break
                 
-                # Try fuzzy match if no exact match
-                if not found and self._fuzzy_match_header(text, item_num):
-                    sections.append((item_num, text, header['page_no'], True, "FUZZY"))
-                    found = True
-                    break
+                # Store best fuzzy match
+                if not found:
+                    score = self._get_fuzzy_score(text, item_num)
+                    if score > best_fuzzy_score:
+                        best_fuzzy_score = score
+                        best_fuzzy_match = (text, header['page_no'])
             
-            # If still not found
-            if not found:
+            # If no exact match found, use best fuzzy match if it meets threshold
+            if not found and best_fuzzy_match and best_fuzzy_score > 70:  # Lowered threshold
+                sections.append((item_num, best_fuzzy_match[0], best_fuzzy_match[1], True, "FUZZY"))
+            elif not found:
                 sections.append((item_num, "NOT FOUND", 0, False, "MISSING"))
         
         return sections
+    
+    def _get_fuzzy_score(self, text: str, item_num: int) -> float:
+        """Calculate fuzzy match score with multiple criteria."""
+        standard_title = f"ITEM {item_num}: {self.FDD_ITEMS[item_num]}"
+        text_upper = text.upper()
+        
+        # Different matching criteria
+        scores = {
+            'exact_number': 100 if str(item_num) in text else 0,
+            'item_prefix': 100 if f"ITEM {item_num}" in text_upper else 0,
+            'content_match': fuzz.token_set_ratio(text_upper, self.FDD_ITEMS[item_num].upper()),
+            'full_match': fuzz.ratio(text_upper, standard_title.upper())
+        }
+        
+        # Weights for different criteria
+        weights = {
+            'exact_number': 0.3,
+            'item_prefix': 0.2,
+            'content_match': 0.3,
+            'full_match': 0.2
+        }
+        
+        # Calculate weighted score
+        weighted_score = sum(scores[k] * weights[k] for k in weights)
+        
+        # Bonus points for key phrases
+        key_phrases = self.FDD_ITEMS[item_num].split()
+        if any(phrase.lower() in text.lower() for phrase in key_phrases):
+            weighted_score += 10
+        
+        return weighted_score
     
     def save_results(self, validation_results: List[Dict], output_dir: Path, source_file: Path):
         """Save analysis results and validation issues to CSV files."""
