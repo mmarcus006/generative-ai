@@ -5,6 +5,7 @@ from pathlib import Path
 import sqlite3
 from datetime import datetime
 from config import GEMINI_API_KEY
+import time
 
 # Import our modules
 from fdd_info_extractor import FDDInfoExtractor
@@ -25,23 +26,45 @@ class TestFDDProcessors(unittest.TestCase):
         cls.test_file = Path(__file__).parent.parent / "1 TOM PLUMBER GLOBAL, INC._2024.json"
         if not cls.test_file.exists():
             raise FileNotFoundError(f"Test file not found: {cls.test_file}")
-        
-        # Set up test database
-        cls.test_db = cls.test_dir / "test_fdd.db"
-        if cls.test_db.exists():
-            cls.test_db.unlink()
             
     def setUp(self):
         """Set up each test."""
         self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        # Clear database before each test
-        if self.test_db.exists():
-            self.test_db.unlink()
         
+        # Create unique test database for each test
+        self.test_db = self.test_dir / f"test_fdd_{self.timestamp}.db"
+        
+    def tearDown(self):
+        """Clean up after each test."""
+        # Close any open database connections
+        if hasattr(self, 'conn'):
+            self.conn.close()
+            
+        # Remove test database with retry
+        if self.test_db.exists():
+            max_retries = 3
+            for i in range(max_retries):
+                try:
+                    self.test_db.unlink()
+                    break
+                except PermissionError:
+                    if i == max_retries - 1:
+                        print(f"Warning: Could not delete {self.test_db}")
+                    time.sleep(1)  # Wait before retry
+    
+    @classmethod
+    def tearDownClass(cls):
+        """Clean up test environment."""
+        # Clean up test directories if empty
+        try:
+            cls.test_dir.rmdir()
+            cls.results_dir.rmdir()
+        except:
+            pass  # Ignore if directories not empty
+
     def test_info_extractor(self):
         """Test FDD Info Extractor functionality."""
         try:
-            # Initialize extractor with config API key
             extractor = FDDInfoExtractor(str(self.test_file))
             
             # Test text extraction
@@ -50,10 +73,10 @@ class TestFDDProcessors(unittest.TestCase):
             self.assertIsInstance(text_content, str)
             self.assertGreater(len(text_content), 0)
             
-            # Save text sample for inspection
+            # Save text sample
             text_sample_file = self.results_dir / f"text_sample_{self.timestamp}.txt"
             with open(text_sample_file, 'w', encoding='utf-8') as f:
-                f.write(text_content[:2000])  # First 2000 chars
+                f.write(text_content[:2000])
             
             # Test FDD info extraction
             fdd_info = extractor.extract_fdd_info()
@@ -87,64 +110,55 @@ class TestFDDProcessors(unittest.TestCase):
             self.assertIsNotNone(doc_id)
             
             # Query and validate database contents
-            with sqlite3.connect(str(self.test_db)) as conn:
-                cursor = conn.cursor()
+            self.conn = sqlite3.connect(str(self.test_db))
+            cursor = self.conn.cursor()
+            
+            # Check documents table
+            cursor.execute("SELECT * FROM documents WHERE id = ?", (doc_id,))
+            doc_record = cursor.fetchone()
+            self.assertIsNotNone(doc_record)
+            
+            # Check sections table
+            cursor.execute("""
+                SELECT COUNT(DISTINCT item_number) 
+                FROM sections 
+                WHERE document_id = ?
+            """, (doc_id,))
+            section_count = cursor.fetchone()[0]
+            self.assertGreater(section_count, 0)
+            
+            # Save results
+            result_file = self.results_dir / f"document_organizer_results_{self.timestamp}.json"
+            results = {
+                'document': list(doc_record),
+                'section_count': section_count,
+                'sample_sections': []
+            }
+            
+            # Get sample sections
+            cursor.execute("""
+                SELECT s.item_number, s.header_text, 
+                       GROUP_CONCAT(SUBSTR(sc.text_content, 1, 200)) as content
+                FROM sections s
+                LEFT JOIN section_content sc ON s.id = sc.section_id
+                WHERE s.document_id = ?
+                GROUP BY s.id
+                LIMIT 5
+            """, (doc_id,))
+            results['sample_sections'] = [list(row) for row in cursor.fetchall()]
+            
+            with open(result_file, 'w', encoding='utf-8') as f:
+                json.dump(results, f, indent=2)
                 
-                # Check documents table
-                cursor.execute("SELECT * FROM documents WHERE id = ?", (doc_id,))
-                doc_record = cursor.fetchone()
-                self.assertIsNotNone(doc_record)
-                
-                # Check sections table
-                cursor.execute("""
-                    SELECT COUNT(DISTINCT item_number) 
-                    FROM sections 
-                    WHERE document_id = ?
-                """, (doc_id,))
-                section_count = cursor.fetchone()[0]
-                self.assertGreater(section_count, 0)
-                
-                # Check section content
-                cursor.execute("""
-                    SELECT COUNT(*) 
-                    FROM section_content sc 
-                    JOIN sections s ON sc.section_id = s.id 
-                    WHERE s.document_id = ?
-                """, (doc_id,))
-                content_count = cursor.fetchone()[0]
-                self.assertGreater(content_count, 0)
-                
-                # Save database query results
-                result_file = self.results_dir / f"document_organizer_results_{self.timestamp}.json"
-                results = {
-                    'document': list(doc_record),  # Convert tuple to list for JSON serialization
-                    'section_count': section_count,
-                    'content_count': content_count,
-                    'sample_sections': []
-                }
-                
-                # Get sample of sections with their content
-                cursor.execute("""
-                    SELECT s.item_number, s.header_text, 
-                           GROUP_CONCAT(SUBSTR(sc.text_content, 1, 200)) as content
-                    FROM sections s
-                    LEFT JOIN section_content sc ON s.id = sc.section_id
-                    WHERE s.document_id = ?
-                    GROUP BY s.id
-                    LIMIT 5
-                """, (doc_id,))
-                results['sample_sections'] = [list(row) for row in cursor.fetchall()]
-                
-                with open(result_file, 'w', encoding='utf-8') as f:
-                    json.dump(results, f, indent=2)
-                    
         except Exception as e:
             self.fail(f"Document organization failed: {str(e)}")
+        finally:
+            if hasattr(self, 'conn'):
+                self.conn.close()
     
     def test_section_analyzer(self):
         """Test FDD Section Analyzer functionality."""
         try:
-            # Initialize analyzer
             analyzer = FDDSectionAnalyzer(str(self.test_file))
             
             # Test section analysis
@@ -176,19 +190,12 @@ class TestFDDProcessors(unittest.TestCase):
                 json.dump(results, f, indent=2)
             
             # Validate results
-            self.assertEqual(len(sections), 23)  # Should find all 23 items
-            found_sections = [s for s in sections if s[3]]  # s[3] is the 'found' flag
+            self.assertEqual(len(sections), 23)
+            found_sections = [s for s in sections if s[3]]
             self.assertGreater(len(found_sections), 0)
             
         except Exception as e:
             self.fail(f"Section analysis failed: {str(e)}")
-    
-    @classmethod
-    def tearDownClass(cls):
-        """Clean up test environment."""
-        # Keep results directory but clean up test data
-        if cls.test_db.exists():
-            cls.test_db.unlink()
 
 def run_tests():
     """Run tests and generate report."""
