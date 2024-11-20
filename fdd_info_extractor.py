@@ -52,6 +52,15 @@ class FDDInfoExtractor:
             "properties": {
                 "franchise_name": {"type": "STRING"},
                 "legal_entity_type": {"type": "STRING"},
+                "parent_company": {"type": "STRING"},
+                "industry": {
+                    "type": "OBJECT",
+                    "properties": {
+                        "primary": {"type": "STRING"},
+                        "secondary": {"type": "ARRAY", "items": {"type": "STRING"}},
+                        "keywords": {"type": "ARRAY", "items": {"type": "STRING"}}
+                    }
+                },
                 "address": {
                     "type": "OBJECT",
                     "properties": {
@@ -90,15 +99,13 @@ class FDDInfoExtractor:
                 "address",
                 "issuance_date",
                 "fdd_year",
-                "business_description"
+                "business_description",
+                "industry"
             ]
         }
 
         # Get full text content without length limit
         text_content = self.extract_first_20_pages()
-        
-        # Initialize Gemini model
-        model = genai.GenerativeModel("gemini-1.5-pro")
         
         # Generate prompt
         prompt = f"""
@@ -110,6 +117,17 @@ class FDDInfoExtractor:
         4. Business description and franchise system details
         5. Initial franchise fee and total investment range
         6. State of incorporation and incorporation date
+        7. Industry classification and keywords
+        8. Parent company name if any
+        
+        For the industry information:
+        - Identify the primary industry sector
+        - List any secondary/related industries
+        - Extract relevant business keywords
+        
+        For parent company:
+        - Identify and provide only the name of any parent or holding company
+        - If no parent company is mentioned, return null
         
         Return all information found in the structured format specified.
         If certain information is not found, return null for those fields.
@@ -119,6 +137,7 @@ class FDDInfoExtractor:
         """
         
         # Get response from Gemini
+        model = genai.GenerativeModel("gemini-1.5-pro")
         response = model.generate_content(
             prompt,
             generation_config=genai.types.GenerationConfig(
