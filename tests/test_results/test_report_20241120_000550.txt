@@ -1,0 +1,30 @@
+FDD Processors Test Report
+==================================================
+
+Tests Run: 3
+Failures: 1
+Errors: 0
+Skipped: 0
+
+Failures:
+test_document_organizer (__main__.TestFDDProcessors.test_document_organizer): Traceback (most recent call last):
+  File "C:\Projects\generative-ai\tests\test_fdd_processors.py", line 136, in test_document_organizer
+    self.assertEqual(doc_id, doc_id2, "Document IDs should match for same file")
+AssertionError: 1 != 2 : Document IDs should match for same file
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Projects\generative-ai\tests\test_fdd_processors.py", line 186, in test_document_organizer
+    self.fail(f"Document organization failed: {str(e)}\n{traceback.format_exc()}")
+AssertionError: Document organization failed: 1 != 2 : Document IDs should match for same file
+Traceback (most recent call last):
+  File "C:\Projects\generative-ai\tests\test_fdd_processors.py", line 136, in test_document_organizer
+    self.assertEqual(doc_id, doc_id2, "Document IDs should match for same file")
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\unittest\case.py", line 873, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\unittest\case.py", line 866, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: 1 != 2 : Document IDs should match for same file
+
+

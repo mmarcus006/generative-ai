@@ -5,11 +5,13 @@ from typing import Dict, List, Tuple
 from datetime import datetime
 import re
 from tqdm import tqdm
+import argparse
 
 class FDDDocumentOrganizer:
-    def __init__(self, db_path: str = "fdd_documents.db"):
+    def __init__(self, db_path: str = "fdd_documents.db", overwrite: bool = False):
         """Initialize organizer with database path."""
         self.db_path = db_path
+        self.overwrite = overwrite
         self.init_database()
         
     def init_database(self):
@@ -37,8 +39,7 @@ class FDDDocumentOrganizer:
                     start_page INTEGER,
                     end_page INTEGER,
                     confidence_score FLOAT,
-                    FOREIGN KEY (document_id) REFERENCES documents(id),
-                    UNIQUE(document_id, item_number)
+                    FOREIGN KEY (document_id) REFERENCES documents(id)
                 );
                 
                 -- Section content stores the actual text content
@@ -47,8 +48,8 @@ class FDDDocumentOrganizer:
                     section_id INTEGER,
                     text_content TEXT,
                     page_number INTEGER,
-                    original_ref TEXT, -- Reference to original Docling text
-                    sequence_order INTEGER, -- Order within section
+                    original_ref TEXT,
+                    sequence_order INTEGER,
                     bbox_top FLOAT,
                     bbox_left FLOAT,
                     FOREIGN KEY (section_id) REFERENCES sections(id)
@@ -99,15 +100,31 @@ class FDDDocumentOrganizer:
         year = int(year_match.group(1)) if year_match else None
         company_name = file_path.stem.split('_')[0]
         
-        # Insert document record
+        # First check if document exists
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
-            cursor.execute("""
-                INSERT OR REPLACE INTO documents (file_name, file_path, year, company_name)
-                VALUES (?, ?, ?, ?)
-            """, (file_path.name, str(file_path), year, company_name))
-            document_id = cursor.lastrowid
             
+            # Try to get existing document ID
+            cursor.execute("""
+                SELECT id FROM documents 
+                WHERE file_path = ?
+            """, (str(file_path),))
+            
+            existing_doc = cursor.fetchone()
+            
+            if existing_doc:
+                document_id = existing_doc[0]
+            else:
+                # Insert new document if it doesn't exist
+                cursor.execute("""
+                    INSERT INTO documents 
+                    (file_name, file_path, year, company_name)
+                    VALUES (?, ?, ?, ?)
+                """, (file_path.name, str(file_path), year, company_name))
+                document_id = cursor.lastrowid
+                
+            conn.commit()
+        
         # Process sections
         self._process_sections(doc_data, document_id)
         
@@ -138,6 +155,18 @@ class FDDDocumentOrganizer:
         
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
+            
+            # Check if sections exist for this document
+            cursor.execute("SELECT COUNT(*) FROM sections WHERE document_id = ?", (document_id,))
+            existing_sections = cursor.fetchone()[0] > 0
+            
+            if existing_sections and not self.overwrite:
+                # Skip processing if sections exist and overwrite is False
+                return
+            elif existing_sections and self.overwrite:
+                # Delete existing sections if overwrite is True
+                cursor.execute("DELETE FROM sections WHERE document_id = ?", (document_id,))
+                conn.commit()
             
             for i, header in enumerate(section_headers):
                 next_header = section_headers[i + 1] if i + 1 < len(section_headers) else None
@@ -187,9 +216,9 @@ class FDDDocumentOrganizer:
                         text_item['left']
                     ))
 
-def process_directory(input_dir: str):
+def process_directory(input_dir: str, overwrite: bool = False):
     """Process all JSON files in directory."""
-    organizer = FDDDocumentOrganizer()
+    organizer = FDDDocumentOrganizer(overwrite=overwrite)
     input_path = Path(input_dir)
     
     # Process all JSON files
@@ -201,8 +230,12 @@ def process_directory(input_dir: str):
             print(f"\nError processing {json_file.name}: {str(e)}")
 
 def main():
-    input_dir = r"C:\Projects\NewFranchiseData_Windows\FinalFranchiseData_Windows\data\processed_data\json_documents"
-    process_directory(input_dir)
+    parser = argparse.ArgumentParser(description='Process FDD documents')
+    parser.add_argument('--input-dir', default=r"C:\Projects\NewFranchiseData_Windows\FinalFranchiseData_Windows\data\processed_data\json_documents")
+    parser.add_argument('--overwrite', action='store_true', help='Overwrite existing sections')
+    args = parser.parse_args()
+    
+    process_directory(args.input_dir, args.overwrite)
     print("\nProcessing complete! Data stored in fdd_documents.db")
 
 if __name__ == "__main__":

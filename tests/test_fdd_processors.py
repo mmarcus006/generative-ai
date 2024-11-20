@@ -102,56 +102,88 @@ class TestFDDProcessors(unittest.TestCase):
     def test_document_organizer(self):
         """Test FDD Document Organizer functionality."""
         try:
-            # Initialize organizer with test database
+            # First pass - initial processing
             organizer = FDDDocumentOrganizer(str(self.test_db))
             
-            # Process test document
+            # Verify test file exists
+            self.assertTrue(self.test_file.exists(), f"Test file not found: {self.test_file}")
+            
+            # Process document with logging
+            print(f"\nProcessing document: {self.test_file}")
             doc_id = organizer.process_document(str(self.test_file))
             self.assertIsNotNone(doc_id)
+            print(f"Document processed with ID: {doc_id}")
             
-            # Query and validate database contents
+            # Connect to database and verify document
             self.conn = sqlite3.connect(str(self.test_db))
             cursor = self.conn.cursor()
             
-            # Check documents table
+            # Verify document record
             cursor.execute("SELECT * FROM documents WHERE id = ?", (doc_id,))
             doc_record = cursor.fetchone()
-            self.assertIsNotNone(doc_record)
+            self.assertIsNotNone(doc_record, "Document record not found in database")
+            print(f"Document record found: {doc_record}")
             
-            # Check sections table
-            cursor.execute("""
-                SELECT COUNT(DISTINCT item_number) 
-                FROM sections 
-                WHERE document_id = ?
-            """, (doc_id,))
-            section_count = cursor.fetchone()[0]
-            self.assertGreater(section_count, 0)
+            # Get initial section count with better error handling
+            cursor.execute("SELECT COUNT(*) FROM sections WHERE document_id = ?", (doc_id,))
+            initial_count = cursor.fetchone()[0]
+            self.assertGreater(initial_count, 0, "No sections found for document")
+            print(f"Initial section count: {initial_count}")
+            
+            # Second pass - without overwrite
+            organizer_no_overwrite = FDDDocumentOrganizer(str(self.test_db), overwrite=False)
+            doc_id2 = organizer_no_overwrite.process_document(str(self.test_file))
+            self.assertEqual(doc_id, doc_id2, "Document IDs should match for same file")
+            
+            # Verify count remains the same
+            cursor.execute("SELECT COUNT(*) FROM sections WHERE document_id = ?", (doc_id2,))
+            no_overwrite_count = cursor.fetchone()[0]
+            self.assertEqual(initial_count, no_overwrite_count, 
+                            f"Section count changed without overwrite: {initial_count} vs {no_overwrite_count}")
+            
+            # Third pass - with overwrite
+            organizer_overwrite = FDDDocumentOrganizer(str(self.test_db), overwrite=True)
+            doc_id3 = organizer_overwrite.process_document(str(self.test_file))
+            self.assertEqual(doc_id, doc_id3, "Document IDs should match for same file")
+            
+            # Verify sections were overwritten
+            cursor.execute("SELECT COUNT(*) FROM sections WHERE document_id = ?", (doc_id3,))
+            overwrite_count = cursor.fetchone()[0]
+            self.assertEqual(initial_count, overwrite_count, 
+                            f"Section count changed after overwrite: {initial_count} vs {overwrite_count}")
             
             # Save results
             result_file = self.results_dir / f"document_organizer_results_{self.timestamp}.json"
             results = {
                 'document': list(doc_record),
-                'section_count': section_count,
+                'section_count': initial_count,
+                'no_overwrite_count': no_overwrite_count,
+                'overwrite_count': overwrite_count,
                 'sample_sections': []
             }
             
-            # Get sample sections
-            cursor.execute("""
-                SELECT s.item_number, s.header_text, 
-                       GROUP_CONCAT(SUBSTR(sc.text_content, 1, 200)) as content
-                FROM sections s
-                LEFT JOIN section_content sc ON s.id = sc.section_id
-                WHERE s.document_id = ?
-                GROUP BY s.id
-                LIMIT 5
-            """, (doc_id,))
-            results['sample_sections'] = [list(row) for row in cursor.fetchall()]
+            # Get sample sections with error handling
+            try:
+                cursor.execute("""
+                    SELECT s.item_number, s.header_text, 
+                           GROUP_CONCAT(SUBSTR(sc.text_content, 1, 200)) as content
+                    FROM sections s
+                    LEFT JOIN section_content sc ON s.id = sc.section_id
+                    WHERE s.document_id = ?
+                    GROUP BY s.id
+                    LIMIT 5
+                """, (doc_id,))
+                results['sample_sections'] = [list(row) for row in cursor.fetchall()]
+            except sqlite3.Error as e:
+                print(f"Error getting sample sections: {e}")
+                results['sample_sections'] = []
             
             with open(result_file, 'w', encoding='utf-8') as f:
                 json.dump(results, f, indent=2)
                 
         except Exception as e:
-            self.fail(f"Document organization failed: {str(e)}")
+            import traceback
+            self.fail(f"Document organization failed: {str(e)}\n{traceback.format_exc()}")
         finally:
             if hasattr(self, 'conn'):
                 self.conn.close()

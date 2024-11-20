@@ -1,0 +1,21 @@
+FDD Processors Test Report
+==================================================
+
+Tests Run: 3
+Failures: 1
+Errors: 0
+Skipped: 0
+
+Failures:
+test_document_organizer (__main__.TestFDDProcessors.test_document_organizer): Traceback (most recent call last):
+  File "C:\Projects\generative-ai\tests\test_fdd_processors.py", line 138, in test_document_organizer
+    self.assertIsNotNone(doc_record)
+AssertionError: unexpectedly None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Projects\generative-ai\tests\test_fdd_processors.py", line 176, in test_document_organizer
+    self.fail(f"Document organization failed: {str(e)}")
+AssertionError: Document organization failed: unexpectedly None
+

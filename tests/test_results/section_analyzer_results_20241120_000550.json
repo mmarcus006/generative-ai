@@ -1,0 +1,351 @@
+{
+  "sections": [
+    {
+      "item_num": 1,
+      "text": "ITEM 1",
+      "page": 6,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 2,
+      "text": "ITEM 2",
+      "page": 9,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 3,
+      "text": "ITEM 3",
+      "page": 10,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 4,
+      "text": "ITEM 4",
+      "page": 10,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 5,
+      "text": "ITEM 5",
+      "page": 10,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 6,
+      "text": "ITEM 6",
+      "page": 11,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 7,
+      "text": "ITEM 7",
+      "page": 18,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 8,
+      "text": "ITEM 8",
+      "page": 22,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 9,
+      "text": "ITEM 9",
+      "page": 25,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 10,
+      "text": "ITEM 10",
+      "page": 26,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 11,
+      "text": "ITEM 11",
+      "page": 26,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 12,
+      "text": "ITEM 12",
+      "page": 36,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 13,
+      "text": "[Item 13 begins on Next Page]",
+      "page": 37,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 14,
+      "text": "ITEM 14",
+      "page": 40,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 15,
+      "text": "ITEM 15",
+      "page": 41,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 16,
+      "text": "ITEM 16",
+      "page": 42,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 17,
+      "text": "ITEM 17",
+      "page": 43,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 18,
+      "text": "ITEM 18",
+      "page": 48,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 19,
+      "text": "ITEM 19",
+      "page": 49,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 20,
+      "text": "ITEM 20",
+      "page": 54,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 21,
+      "text": "ITEM 21",
+      "page": 58,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 22,
+      "text": "ITEM 22",
+      "page": 58,
+      "found": true,
+      "match_type": "EXACT"
+    },
+    {
+      "item_num": 23,
+      "text": "ITEM 23",
+      "page": 58,
+      "found": true,
+      "match_type": "EXACT"
+    }
+  ],
+  "validation": [
+    {
+      "item_num": 1,
+      "page": 6,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 1",
+      "issues": []
+    },
+    {
+      "item_num": 2,
+      "page": 9,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 2",
+      "issues": []
+    },
+    {
+      "item_num": 3,
+      "page": 10,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 3",
+      "issues": []
+    },
+    {
+      "item_num": 4,
+      "page": 10,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 4",
+      "issues": []
+    },
+    {
+      "item_num": 5,
+      "page": 10,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 5",
+      "issues": []
+    },
+    {
+      "item_num": 6,
+      "page": 11,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 6",
+      "issues": []
+    },
+    {
+      "item_num": 7,
+      "page": 18,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 7",
+      "issues": []
+    },
+    {
+      "item_num": 8,
+      "page": 22,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 8",
+      "issues": []
+    },
+    {
+      "item_num": 9,
+      "page": 25,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 9",
+      "issues": []
+    },
+    {
+      "item_num": 10,
+      "page": 26,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 10",
+      "issues": []
+    },
+    {
+      "item_num": 11,
+      "page": 26,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 11",
+      "issues": []
+    },
+    {
+      "item_num": 12,
+      "page": 36,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 12",
+      "issues": []
+    },
+    {
+      "item_num": 13,
+      "page": 37,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "[Item 13 begins on Next Page]",
+      "issues": []
+    },
+    {
+      "item_num": 14,
+      "page": 40,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 14",
+      "issues": []
+    },
+    {
+      "item_num": 15,
+      "page": 41,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 15",
+      "issues": []
+    },
+    {
+      "item_num": 16,
+      "page": 42,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 16",
+      "issues": []
+    },
+    {
+      "item_num": 17,
+      "page": 43,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 17",
+      "issues": []
+    },
+    {
+      "item_num": 18,
+      "page": 48,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 18",
+      "issues": []
+    },
+    {
+      "item_num": 19,
+      "page": 49,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 19",
+      "issues": []
+    },
+    {
+      "item_num": 20,
+      "page": 54,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 20",
+      "issues": []
+    },
+    {
+      "item_num": 21,
+      "page": 58,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 21",
+      "issues": []
+    },
+    {
+      "item_num": 22,
+      "page": 58,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 22",
+      "issues": []
+    },
+    {
+      "item_num": 23,
+      "page": 58,
+      "found": true,
+      "match_type": "EXACT",
+      "text": "ITEM 23",
+      "issues": []
+    }
+  ]
+}

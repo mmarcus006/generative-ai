@@ -1,0 +1,26 @@
+FDD Processors Test Report
+==================================================
+
+Tests Run: 3
+Failures: 1
+Errors: 0
+Skipped: 0
+
+Failures:
+test_document_organizer (__main__.TestFDDProcessors.test_document_organizer): Traceback (most recent call last):
+  File "C:\Projects\generative-ai\tests\test_fdd_processors.py", line 109, in test_document_organizer
+    doc_id = organizer.process_document(str(self.test_file))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\generative-ai\fdd_document_organizer.py", line 112, in process_document
+    self._process_sections(doc_data, document_id)
+  File "C:\Projects\generative-ai\fdd_document_organizer.py", line 150, in _process_sections
+    cursor.execute("""
+sqlite3.IntegrityError: UNIQUE constraint failed: sections.document_id, sections.item_number
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Projects\generative-ai\tests\test_fdd_processors.py", line 154, in test_document_organizer
+    self.fail(f"Document organization failed: {str(e)}")
+AssertionError: Document organization failed: UNIQUE constraint failed: sections.document_id, sections.item_number
+
